@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - VA Blueprint Masterclass</title>
+    <style>
+        :root {
+            --periwinkle: #4169e1;
+            --rose-gold: #E8B4B8;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: var(--periwinkle);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .thank-you-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px var(--shadow);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .thingz-logo {
+            width: 120px;
+            margin-bottom: 2rem;
+        }
+
+        .thank-you-title {
+            color: var(--rose-gold);
+            font-size: 3em;
+            margin-bottom: 1rem;
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 2px 2px 4px var(--shadow);
+        }
+
+        .confirmation-details {
+            color: var(--white);
+            margin: 2rem 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .calendar-btn {
+            display: inline-block;
+            background: var(--rose-gold);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .calendar-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--shadow);
+        }
+
+        .sparkle {
+            position: absolute;
+            color: var(--rose-gold);
+            font-size: 2em;
+            opacity: 0.7;
+        }
+
+        .sparkle-1 { top: 20px; left: 20px; }
+        .sparkle-2 { bottom: 20px; right: 20px; }
+
+        .heart-line {
+            width: 200px;
+            height: 2px;
+            background: var(--rose-gold);
+            margin: 20px auto;
+            position: relative;
+            opacity: 0.7;
+        }
+
+        .heart-line::before,
+        .heart-line::after {
+            content: '♥';
+            position: absolute;
+            color: var(--rose-gold);
+        }
+
+        .heart-line::before { left: -15px; top: -10px; }
+        .heart-line::after { right: -15px; top: -10px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .thank-you-title {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sparkle sparkle-1">✧</div>
+    <div class="sparkle sparkle-2">✧</div>
+
+    <div class="thank-you-container">
+        <img src="All Thingz Admin (Logo) (5).png" alt="Thingz Admin Logo" class="thingz-logo">
+        
+        <h1 class="thank-you-title">Thank You For Your Registration!</h1>
+        <div class="heart-line"></div>
+        
+        <div class="confirmation-details">
+            <p>Your registration for the VA Blueprint Masterclass is confirmed!</p>
+            <p>📅 <strong>Date:</strong> January 18th, 2025</p>
+            <p>⏰ <strong>Time:</strong> 2:00 PM CST</p>
+            <p>📧 Check your email for:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li>✧ Webinar access link</li>
+                <li>✧ Preparation materials</li>
+            </ul>
+        </div>
+
+        <a href="#" class="calendar-btn" onclick="addToCalendar()">
+            Add to Calendar
+        </a>
+              <ul>
+        *Please make sure to convert to your timezone*
+    </ul>
+    </div>
+
+    <script>
+        function addToCalendar() {
+            const event = {
+                title: "VA Blueprint Masterclass",
+                description: "Join us for an exclusive masterclass on launching your VA business!",
+                location: "Online Webinar",
+                start: "20250118T190000Z", // 2:00 PM CST
+                end: "20250118T204500Z"    // 3:45 PM CST
+            };
+
+            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}&dates=${event.start}/${event.end}`;
+            
+            window.open(calendarUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
